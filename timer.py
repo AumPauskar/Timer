@@ -4,14 +4,13 @@ import json
 
 # defining the starting minutes and seconds
 # using a json format-->config.json to configure time
-with open('config.json') as file:
-	data = json.load(file)
-
+f = open('config.json','r')
+data = json.load(f)
 print(data)
 
-'''
-minutes = data['minutes']
-seconds = data['seconds']
+
+minutes = int(data['minutes'])
+seconds = int(data['seconds'])
 lever = True # currently inactive
 # lever: an on/off switch for the program
 
@@ -67,4 +66,3 @@ Countdown()
 
 # tkinter essentials
 root.mainloop()
-'''
