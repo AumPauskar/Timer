@@ -23,7 +23,7 @@ def Countdown():
 		label_dot.grid_forget()
 	elif seconds == 0:
 		minutes -= 1
-		seconds = 60
+		seconds = 59
 		# function given below aids repetation of the function
 		root.after(1000, Countdown)
 	else:
