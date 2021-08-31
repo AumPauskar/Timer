@@ -6,5 +6,6 @@ Err01:	Json file does not exist/
 			"minutes": "00",
 			"seconds": "00"
 		}
+
 Err02:	Unsupported data type
 		Values except standard ASCII 0-9 entered
