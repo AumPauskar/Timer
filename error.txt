@@ -1,0 +1,3 @@
+errors table
+Err01:	Unsupported data type
+		Values except standard ASCII 0-9 entered
