@@ -1,16 +1,29 @@
 # importing all the modules
+import timeconversion
 from tkinter import *
 import json
 
+with open('config.json', 'r') as config:
+	data = json.load(config)
+	hours = int(data['hours']); minutes = int(data['minutes']); seconds = int(data['seconds'])
+
 # defining the starting minutes and seconds
 # using a json format-->config.json to configure time
-f = open('config.json','r')
-data = json.load(f)
-print(data)
 
 
-minutes = int(data['minutes'])
-seconds = int(data['seconds'])
+
+timeconversion.Convert(hours, minutes, seconds)
+print(hours, minutes, seconds)
+
+
+
+'''
+timeconversion.Convert(hours, minutes, seconds)
+h = hours
+m = minutes
+s = seconds
+'''
+'''
 lever = True # currently inactive
 # lever: an on/off switch for the program
 
@@ -66,3 +79,4 @@ Countdown()
 
 # tkinter essentials
 root.mainloop()
+'''

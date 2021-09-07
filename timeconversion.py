@@ -1,9 +1,4 @@
-def Convert():
-	import json
-	with open('config.json', 'r') as config:
-		data = json.load(config)
-	hours = int(data['hours']); minutes = int(data['minutes']); seconds = int(data['seconds'])
-
+def Convert(hours, minutes, seconds):
 	# these two if statements are executed to convert the times in the correct form
 	# eg if seconds == 3600 then hour ==1 and minutes, seconds are reduced to 0
 	if seconds >= 60:
@@ -22,7 +17,5 @@ def Convert():
 	if len(minutes) == 1:
 		minutes = '0' + minutes
 
+	return hours, minutes, seconds
 	
-
-	print(hours, minutes, seconds)
-Convert()
