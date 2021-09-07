@@ -15,10 +15,10 @@ with open('config.json', 'r') as config:
 timer = timeconversion.Convert(hours, minutes, seconds)
 print(timer[0])
 
+
 hours = int(timer[0])
 minutes = int(timer[1])
 seconds = int(timer[2])
-
 
 lever = True # currently inactive
 # lever: an on/off switch for the program
@@ -31,14 +31,20 @@ root.wm_attributes("-topmost", 1)
 
 # countdown function helps to run the timer
 def Countdown():
-	global minutes, seconds
-	if minutes == 0 and seconds == 0:
+	global hours, minutes, seconds
+	if hours == minutes == seconds == 0:
 		minutes = 'Time'; seconds = 'up'
-		label_dot.grid_forget()
-	elif seconds == 0:
-		minutes -= 1
-		seconds = 59
+		label_hrs.grid_forget()
+		label_dot1.grid_forget()
+		label_dot2.grid_forget()
+	elif minutes == seconds == 0:
+		hours -= 1
+		minutes = seconds = 59
 		# function given below aids repetation of the function
+		root.after(1000, Countdown)
+	elif seconds == 0:
+		minutes -=1
+		seconds = 59
 		root.after(1000, Countdown)
 	else:
 		seconds -= 1
@@ -55,6 +61,7 @@ def Countdown():
 		temp_min = '0' + str(minutes)
 	else:
 		temp_min = str(minutes)
+	label_hrs.config(text = hours) # work in progress
 	label_min.config(text = temp_min)
 	label_sec.config(text = temp_sec)
 
@@ -63,12 +70,16 @@ def Countdown():
 canvas_home = Canvas(root)
 canvas_home.pack()
 
+label_hrs = Label(canvas_home, text = hours)
+label_hrs.grid(row = 1, column =1)
+label_dot1 = Label(canvas_home, text =':')
+label_dot1.grid(row = 1, column =2)
 label_min = Label(canvas_home, text = minutes)
-label_min.grid(row = 1, column = 1)
-label_dot = Label(canvas_home, text = ':')
-label_dot.grid(row = 1, column = 2)
+label_min.grid(row = 1, column = 3)
+label_dot2 = Label(canvas_home, text = ':')
+label_dot2.grid(row = 1, column = 4)
 label_sec = Label(canvas_home, text = seconds)
-label_sec.grid(row = 1, column = 3)
+label_sec.grid(row = 1, column = 5)
 
 # 1st function to start the chain reaction of the code
 Countdown()
