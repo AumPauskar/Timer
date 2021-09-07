@@ -12,18 +12,14 @@ with open('config.json', 'r') as config:
 
 
 
-timeconversion.Convert(hours, minutes, seconds)
-print(hours, minutes, seconds)
+timer = timeconversion.Convert(hours, minutes, seconds)
+print(timer[0])
+
+hours = int(timer[0])
+minutes = int(timer[1])
+seconds = int(timer[2])
 
 
-
-'''
-timeconversion.Convert(hours, minutes, seconds)
-h = hours
-m = minutes
-s = seconds
-'''
-'''
 lever = True # currently inactive
 # lever: an on/off switch for the program
 
@@ -79,4 +75,3 @@ Countdown()
 
 # tkinter essentials
 root.mainloop()
-'''
