@@ -18,3 +18,7 @@ def Convert(hours, minutes, seconds):
 		minutes = '0' + minutes
 
 	return hours, minutes, seconds
+
+def Alarm():
+	import playsound
+	playsound.playsound('CARLOS SAINZ - SMOOTH OPERATOR COMPILATION.mp3')

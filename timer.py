@@ -1,5 +1,5 @@
 # importing all the modules
-import timeconversion
+import timeconversion as tc
 from tkinter import *
 import json
 
@@ -12,8 +12,7 @@ with open('settings.json', 'r') as config:
 
 
 
-timer = timeconversion.Convert(hours, minutes, seconds)
-print(timer[0])
+timer = tc.Convert(hours, minutes, seconds)
 
 
 hours = int(timer[0])
@@ -37,6 +36,7 @@ def Countdown():
 		label_hrs.grid_forget()
 		label_dot1.grid_forget()
 		label_dot2.grid_forget()
+		tc.Alarm()
 	elif minutes == seconds == 0:
 		hours -= 1
 		minutes = seconds = 59
