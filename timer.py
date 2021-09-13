@@ -3,12 +3,12 @@ import timeconversion
 from tkinter import *
 import json
 
-with open('config.json', 'r') as config:
+with open('settings.json', 'r') as config:
 	data = json.load(config)
 	hours = int(data['hours']); minutes = int(data['minutes']); seconds = int(data['seconds'])
 
 # defining the starting minutes and seconds
-# using a json format-->config.json to configure time
+# using a json format-->settings.json to configure time
 
 
 
